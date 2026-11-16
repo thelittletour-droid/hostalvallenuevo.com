@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hostal Valle Nuevo — Juayúa, Ruta de las Flores</title>
+<meta name="description" content="Hostal Valle Nuevo en San José La Majada, Juayúa, Ruta de las Flores, El Salvador. Lo esencial, en un solo lugar.">
+<meta name="theme-color" content="#4C5D3D">
+<link rel="icon" type="image/svg+xml" href="img/isotipo.svg">
+<link rel="canonical" href="https://hostalvallenuevo.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hostal Valle Nuevo — Juayúa, Ruta de las Flores">
+<meta property="og:description" content="Un refugio entre montañas y flores. Lo esencial, en un solo lugar.">
+<meta property="og:image" content="https://hostalvallenuevo.com/img/portada-1.jpg">
+<meta property="og:url" content="https://hostalvallenuevo.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;600&amp;family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&amp;family=EB+Garamond:wght@700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#E3EDD3;color:#122318;font-family:'Cabin',sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+a{color:#4C5D3D}a:hover{color:#122318}
+.serif{font-family:'Cormorant Garamond',serif;font-weight:700}
+
+/* ---------- Intro / loader ---------- */
+.loader{position:fixed;inset:0;z-index:100;background:#4C5D3D;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;animation:loaderOut 1s cubic-bezier(.76,0,.24,1) 1.9s forwards;pointer-events:none}
+.loader img{width:300px;opacity:0;animation:fadeUp .9s ease .2s forwards}
+.loader-line{width:0;height:1px;background:#ABC97B;animation:grow 1.1s cubic-bezier(.65,0,.35,1) .6s forwards}
+@keyframes loaderOut{to{transform:translateY(-100%)}}
+@keyframes grow{to{width:160px}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* ---------- Nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:20px clamp(20px,4vw,56px);background:linear-gradient(to bottom,rgba(18,35,24,.55),rgba(18,35,24,0));opacity:0;animation:fadeIn .8s ease 2.6s forwards}
+@keyframes fadeIn{to{opacity:1}}
+.nav-btn{font-family:'Cabin',sans-serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;min-height:44px;padding:0 22px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:10px;text-decoration:none;transition:background .35s,color .35s,border-color .35s}
+.nav-menu{background:transparent;color:#E3EDD3;border:1px solid rgba(227,237,211,.5)}
+.nav-menu:hover{background:#E3EDD3;color:#122318}
+.nav-book{background:#ABC97B;color:#122318;border:1px solid #ABC97B}
+.nav-book:hover{background:#E3EDD3;color:#122318;border-color:#E3EDD3}
+.burger{display:inline-flex;flex-direction:column;gap:5px}
+.burger i{display:block;width:18px;height:1.5px;background:currentColor}
+
+/* ---------- Menú a pantalla completa ---------- */
+.menu[hidden]{display:none}
+body.menu-open{overflow:hidden}
+.menu{position:fixed;inset:0;z-index:80;background:#122318;color:#E3EDD3;display:flex;flex-wrap:wrap;animation:menuIn .7s cubic-bezier(.76,0,.24,1) forwards}
+@keyframes menuIn{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+.menu-link{display:flex;align-items:baseline;gap:22px;text-decoration:none;color:#E3EDD3;padding:6px 0;opacity:0;transform:translateY(30px);animation:fadeUp .7s cubic-bezier(.22,1,.36,1) forwards}
+.menu-link:hover{color:#ABC97B}
+.menu-link:hover .menu-word{transform:translateX(14px)}
+.menu-word{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(40px,5.4vw,76px);line-height:1.05;transition:transform .45s cubic-bezier(.22,1,.36,1)}
+.menu-num{font-size:13px;letter-spacing:.2em;color:#ABC97B;min-width:28px}
+.menu-photo{object-fit:cover;width:100%;height:100%;animation:kb 14s ease-in-out infinite alternate}
+
+/* ---------- Hero ---------- */
+.hero-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:slideShow 21s infinite}
+.hero-slide.s2{animation-delay:7s}
+.hero-slide.s3{animation-delay:14s}
+@keyframes slideShow{0%{opacity:0;transform:scale(1.14)}6%{opacity:1}33%{opacity:1}40%{opacity:0;transform:scale(1)}100%{opacity:0;transform:scale(1)}}
+@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.12)}}
+.reveal-line{display:block;overflow:hidden;padding:.06em 0 .26em;margin-bottom:-.24em}
+.reveal-line > span{display:block;transform:translateY(110%);animation:lineUp 1.1s cubic-bezier(.22,1,.36,1) forwards}
+.d1 > span{animation-delay:2.5s}.d2 > span{animation-delay:2.65s}.d3 > span{animation-delay:2.8s}
+@keyframes lineUp{to{transform:none}}
+.hero-fade{opacity:0;animation:fadeUp 1s ease forwards}
+.hf1{animation-delay:2.4s}.hf2{animation-delay:3.1s}.hf3{animation-delay:3.3s}
+.btn{font-family:'Cabin',sans-serif;font-weight:600;font-size:15px;letter-spacing:.04em;min-height:52px;padding:0 30px;border-radius:999px;display:inline-flex;align-items:center;gap:12px;text-decoration:none;transition:background .35s,color .35s,gap .35s}
+.btn:hover{gap:20px}
+.btn-hoja{background:#ABC97B;color:#122318}
+.btn-hoja:hover{background:#E3EDD3;color:#122318}
+.btn-ghost{border:1px solid rgba(227,237,211,.6);color:#E3EDD3}
+.btn-ghost:hover{background:#E3EDD3;color:#122318}
+.btn-oscuro{background:#122318;color:#E3EDD3}
+.btn-oscuro:hover{background:#4C5D3D;color:#E3EDD3}
+.scroll-cue{position:relative;width:1px;height:64px;background:rgba(227,237,211,.25);overflow:hidden}
+.scroll-cue::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:#ABC97B;animation:cue 2.2s cubic-bezier(.65,0,.35,1) infinite}
+@keyframes cue{to{top:100%}}
+
+/* ---------- Isotipo en color (máscara del logo blanco) ---------- */
+.iso-musgo{display:block;background:#4C5D3D;-webkit-mask:url(img/isotipo-silueta.png) center/contain no-repeat;mask:url(img/isotipo-silueta.png) center/contain no-repeat}
+.iso-hoja{display:block;background:#ABC97B;-webkit-mask:url(img/isotipo-silueta.png) center/contain no-repeat;mask:url(img/isotipo-silueta.png) center/contain no-repeat}
+.spin-slow{animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- Galería ---------- */
+.tile{position:relative;overflow:hidden;border-radius:4px;display:block;text-decoration:none;color:#E3EDD3}
+.tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s cubic-bezier(.22,1,.36,1)}
+.tile:hover img{transform:scale(1.08)}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(18,35,24,.75),rgba(18,35,24,0) 55%);transition:opacity .5s}
+.tile-label{position:absolute;left:22px;right:22px;bottom:20px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.tile-arrow{display:inline-flex;width:44px;height:44px;border-radius:50%;border:1px solid rgba(227,237,211,.6);align-items:center;justify-content:center;transform:translateX(-10px);opacity:0;transition:all .5s cubic-bezier(.22,1,.36,1)}
+.tile:hover .tile-arrow{transform:none;opacity:1;background:#ABC97B;border-color:#ABC97B;color:#122318}
+
+/* ---------- Tarjetas de espacios ---------- */
+.card{display:flex;flex-direction:column;gap:18px;text-decoration:none;color:#E3EDD3}
+.card-img{overflow:hidden;border-radius:4px;aspect-ratio:3/4}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s cubic-bezier(.22,1,.36,1),filter .6s}
+.card:hover .card-img img{transform:scale(1.06)}
+.card-link{display:inline-flex;align-items:center;gap:10px;color:#ABC97B;font-size:13px;letter-spacing:.2em;text-transform:uppercase;transition:gap .35s}
+.card:hover .card-link{gap:18px}
+
+/* ---------- Marquesina ---------- */
+.marquee{display:flex;width:max-content;animation:marquee 38s linear infinite}
+.marquee-slow{animation-duration:60s}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ---------- Animaciones al hacer scroll (navegadores compatibles) ---------- */
+@supports (animation-timeline: view()){
+  .sr{animation:srIn linear both;animation-timeline:view();animation-range:entry 0% cover 28%}
+  @keyframes srIn{from{opacity:0;transform:translateY(60px)}to{opacity:1;transform:none}}
+  .sr-mask{animation:maskIn linear both;animation-timeline:view();animation-range:entry 0% cover 40%}
+  @keyframes maskIn{from{clip-path:inset(18% 10% 18% 10% round 4px)}to{clip-path:inset(0 0 0 0 round 4px)}}
+  .px{animation:px linear both;animation-timeline:view();animation-range:cover}
+  @keyframes px{from{transform:translateY(-9%) scale(1.18)}to{transform:translateY(9%) scale(1.18)}}
+  .wave-draw{animation:draw linear both;animation-timeline:view();animation-range:entry 10% cover 55%}
+  @keyframes draw{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+  .count-grow{animation:widthGrow linear both;animation-timeline:view();animation-range:entry 20% cover 45%}
+  @keyframes widthGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;animation-delay:0s !important}
+}
+</style>
+</head>
+<body>
+<div style="position: relative; width: 100%; overflow-x: clip; background: #E3EDD3">
+
+<!-- Intro -->
+<div class="loader" aria-hidden="true">
+  <img src="img/marca.svg" alt="">
+  <div class="loader-line"></div>
+</div>
+
+<!-- Navegación -->
+<header class="nav">
+  <a href="#inicio" aria-label="Hostal Valle Nuevo — inicio" style="display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: #E3EDD3">
+    <img src="img/marca-sin-fondo.svg" alt="" style="width: 104px; height: auto">
+  </a>
+  <div style="display: flex; align-items: center; gap: 12px">
+    <a class="nav-btn nav-book" href="https://wa.me/50370373036?text=Hola%2C%20quiero%20reservar%20en%20Hostal%20Valle%20Nuevo" target="_blank" rel="noopener">Reservar</a>
+    <button class="nav-btn nav-menu" type="button" data-menu-open aria-controls="menu" aria-expanded="false" aria-label="Abrir menú"><span class="burger" aria-hidden="true"><i></i><i></i></span>Menú</button>
+  </div>
+</header>
+
+<!-- Menú -->
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menú" hidden>
+  <div style="flex: 999 1 560px; min-width: 0; padding: 110px clamp(24px,6vw,96px) 48px; display: flex; flex-direction: column; justify-content: space-between; gap: 40px">
+    <nav style="display: flex; flex-direction: column; gap: 4px">
+        <a class="menu-link" href="#inicio" data-menu-close style="animation-delay: 0.25s"><span class="menu-num">01</span><span class="menu-word">Inicio</span></a>
+        <a class="menu-link" href="#bienvenida" data-menu-close style="animation-delay: 0.32s"><span class="menu-num">02</span><span class="menu-word">Bienvenidos</span></a>
+        <a class="menu-link" href="#espacios" data-menu-close style="animation-delay: 0.39s"><span class="menu-num">03</span><span class="menu-word">Los espacios</span></a>
+        <a class="menu-link" href="#esencial" data-menu-close style="animation-delay: 0.46s"><span class="menu-num">04</span><span class="menu-word">Lo esencial</span></a>
+        <a class="menu-link" href="#ubicacion" data-menu-close style="animation-delay: 0.53s"><span class="menu-num">05</span><span class="menu-word">Ubicación</span></a>
+        <a class="menu-link" href="#contacto" data-menu-close style="animation-delay: 0.60s"><span class="menu-num">06</span><span class="menu-word">Contacto</span></a>
+    </nav>
+    <div style="display: flex; flex-wrap: wrap; gap: 32px; font-size: 14px; color: rgba(227,237,211,.75)">
+      <span>+503 7037 3036</span><span>hostalvallenuevo@gmail.com</span><span>@hostalvallenuevo</span>
+    </div>
+  </div>
+  <div style="flex: 1 1 380px; min-height: 260px; overflow: hidden; position: relative">
+    <img class="menu-photo" src="img/puerta-jardin.jpg" alt="Puerta abierta hacia el jardín del hostal">
+  </div>
+  <button class="nav-btn nav-menu" type="button" data-menu-close style="position: absolute; top: 20px; right: clamp(20px,4vw,56px)">Cerrar ✕</button>
+</div>
+
+<!-- 01 · Hero -->
+<section id="inicio" style="position: relative; min-height: 820px; display: flex; align-items: flex-end; overflow: hidden; background: #122318; color: #E3EDD3">
+  <img class="hero-slide" src="img/portada-1.jpg" alt="Hostal Valle Nuevo entre flores blancas">
+  <img class="hero-slide s2" src="img/portada-2.jpg" alt="Casa del hostal rodeada de jardín">
+  <img class="hero-slide s3" src="img/portada-3.jpg" alt="Hamaca en el jardín">
+  <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(18,35,24,.92) 0%, rgba(18,35,24,.35) 50%, rgba(18,35,24,.25) 100%)"></div>
+  <div style="position: relative; width: 100%; max-width: 1360px; margin: 0 auto; padding: 0 clamp(24px,5vw,72px) 72px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 40px">
+    <div style="flex: 1 1 560px; min-width: 0">
+      <p class="hero-fade hf1" style="margin: 0 0 22px; font-size: 13px; font-weight: 600; letter-spacing: .32em; color: #ABC97B">SAN JOSÉ LA MAJADA · JUAYÚA · EL SALVADOR</p>
+      <h1 class="serif" style="margin: 0; font-size: clamp(52px,8vw,124px); line-height: .95; letter-spacing: -.01em">
+        <span class="reveal-line d1"><span>Un refugio</span></span>
+        <span class="reveal-line d2"><span>entre montañas</span></span>
+        <span class="reveal-line d3"><span style="font-style: italic; font-weight: 600; color: #ABC97B">y flores.</span></span>
+      </h1>
+    </div>
+    <div style="flex: 0 1 380px; display: flex; flex-direction: column; gap: 26px">
+      <p class="hero-fade hf2" style="margin: 0; font-size: 18px; line-height: 1.6; color: rgba(227,237,211,.88)">En plena Ruta de las Flores, una casa cálida rodeada de jardín, hortensias y aire de montaña. Lo esencial, en un solo lugar.</p>
+      <div class="hero-fade hf3" style="display: flex; flex-wrap: wrap; gap: 12px">
+        <a class="btn btn-hoja" href="https://wa.me/50370373036?text=Hola%2C%20quiero%20reservar%20en%20Hostal%20Valle%20Nuevo" target="_blank" rel="noopener">Reserva tu escapada <span aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost" href="#espacios">Ver espacios</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-fade hf3" style="position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 10px; font-size: 11px; letter-spacing: .3em; color: rgba(227,237,211,.7)">
+    <span>SCROLL</span>
+    <span class="scroll-cue" aria-hidden="true"></span>
+  </div>
+</section>
+
+<!-- 02 · Bienvenida -->
+<section id="bienvenida" style="padding: clamp(96px,12vw,170px) clamp(24px,5vw,72px) clamp(80px,9vw,130px); max-width: 1360px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: clamp(40px,6vw,96px); align-items: center">
+  <div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+    <span class="iso-musgo spin-slow sr" aria-hidden="true" style="width: 64px; height: 64px"></span>
+    <p class="sr" style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .32em; color: #4C5D3D">BIENVENIDOS</p>
+    <h2 class="serif sr" style="margin: 0; font-size: clamp(40px,5vw,72px); line-height: 1.02; color: #122318">Aquí cada visitante <span style="font-style: italic; font-weight: 600; color: #4C5D3D">llega a casa.</span></h2>
+    <p class="sr" style="margin: 0; max-width: 520px; font-size: 18px; line-height: 1.75; color: #2a3a2e">Hostal Valle Nuevo es un rincón tranquilo en San José La Majada, a las afueras de Juayúa. Un espacio pensado para descansar sin complicaciones: cocina equipada, sala para compartir, hamacas bajo los árboles y un jardín que florece todo el año.</p>
+    <svg class="wave-draw" aria-hidden="true" viewBox="0 0 520 40" style="width: 100%; max-width: 520px; height: 40px"><path d="M2 20 C 45 2, 85 2, 130 20 S 215 38, 260 20 S 345 2, 390 20 S 475 38, 518 20" fill="none" stroke="#ABC97B" stroke-width="3" stroke-linecap="round" stroke-dasharray="0.1 11"></path></svg>
+    <a class="btn btn-oscuro sr" href="#espacios" style="align-self: flex-start">Conoce el hostal <span aria-hidden="true">→</span></a>
+  </div>
+  <div style="flex: 1 1 460px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: start">
+    <div class="sr-mask" style="overflow: hidden; border-radius: 4px; aspect-ratio: 2/3"><img class="px" src="img/hortensias.jpg" alt="Hortensias azules en el jardín" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+    <div class="sr-mask" style="overflow: hidden; border-radius: 4px; aspect-ratio: 2/3; margin-top: 96px"><img class="px" src="img/taza.jpg" alt="Taza con el logo del hostal entre las manos" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+  </div>
+</section>
+
+<!-- Marquesina -->
+<div aria-hidden="true" style="background: #4C5D3D; color: #E3EDD3; overflow: hidden; padding: 26px 0; border-top: 1px solid rgba(171,201,123,.3); border-bottom: 1px solid rgba(171,201,123,.3)">
+  <div class="marquee">
+      <span style="display: inline-flex; align-items: center; gap: 36px; padding-right: 36px; white-space: nowrap; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-style: italic; font-size: clamp(30px,3.4vw,48px)">Juayúa<span class="iso-hoja" style="width: 26px; height: 26px"></span></span>
+      <span style="display: inline-flex; align-items: center; gap: 36px; padding-right: 36px; white-space: nowrap; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-style: italic; font-size: clamp(30px,3.4vw,48px)">Ruta de las Flores<span class="iso-hoja" style="width: 26px; height: 26px"></span></span>
+      <span style="display: inline-flex; align-items: center; gap: 36px; padding-right: 36px; white-space: nowrap; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-style: italic; font-size: clamp(30px,3.4vw,48px)">Naturaleza<span class="iso-hoja" style="width: 26px; height: 26px"></span></span>
+      <span style="display: inline-flex; align-items: center; gap: 36px; padding-right: 36px; white-space: nowrap; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-style: italic; font-size: clamp(30px,3.4vw,48px)">Descanso<span class="iso-hoja" style="width: 26px; height: 26px"></span></span>
+      <span style="display: inline-flex; align-items: center; gap: 36px; padding-right: 36px; white-space: nowrap; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-style: italic; font-size: clamp(30px,3.4vw,48px)">Calidez<span class="iso-hoja" style="width: 26px; height: 26px"></span></span>
+      <span style="display: inline-flex; align-items: center; gap: 36px; padding-right: 36px; white-space: nowrap; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-style: italic; font-size: clamp(30px,3.4vw,48px)">Hortensias<span class="iso-hoja" style="width: 26px; height: 26px"></span></span>
+      <span style="display: inline-flex; align-items: center; gap: 36px; padding-right: 36px; white-space: nowrap; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-style: italic; font-size: clamp(30px,3.4vw,48px)">Juayúa<span class="iso-hoja" style="width: 26px; height: 26px"></span></span>
+      <span style="display: inline-flex; align-items: center; gap: 36px; padding-right: 36px; white-space: nowrap; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-style: italic; font-size: clamp(30px,3.4vw,48px)">Ruta de las Flores<span class="iso-hoja" style="width: 26px; height: 26px"></span></span>
+      <span style="display: inline-flex; align-items: center; gap: 36px; padding-right: 36px; white-space: nowrap; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-style: italic; font-size: clamp(30px,3.4vw,48px)">Naturaleza<span class="iso-hoja" style="width: 26px; height: 26px"></span></span>
+      <span style="display: inline-flex; align-items: center; gap: 36px; padding-right: 36px; white-space: nowrap; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-style: italic; font-size: clamp(30px,3.4vw,48px)">Descanso<span class="iso-hoja" style="width: 26px; height: 26px"></span></span>
+      <span style="display: inline-flex; align-items: center; gap: 36px; padding-right: 36px; white-space: nowrap; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-style: italic; font-size: clamp(30px,3.4vw,48px)">Calidez<span class="iso-hoja" style="width: 26px; height: 26px"></span></span>
+      <span style="display: inline-flex; align-items: center; gap: 36px; padding-right: 36px; white-space: nowrap; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-style: italic; font-size: clamp(30px,3.4vw,48px)">Hortensias<span class="iso-hoja" style="width: 26px; height: 26px"></span></span>
+  </div>
+</div>
+
+<!-- 03 · Un vistazo -->
+<section id="galeria" style="padding: clamp(90px,10vw,150px) clamp(24px,5vw,72px); max-width: 1360px; margin: 0 auto">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 52px">
+    <h2 class="serif sr" style="margin: 0; font-size: clamp(40px,5vw,72px); line-height: 1; color: #122318">Un vistazo <span style="font-style: italic; font-weight: 600; color: #4C5D3D">a Valle Nuevo</span></h2>
+    <p class="sr" style="margin: 0; max-width: 360px; font-size: 16px; line-height: 1.7; color: #2a3a2e">Habitaciones cómodas, espacios para cocinar y compartir, y verde por todas partes.</p>
+  </div>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 18px">
+    <a class="tile sr-mask" href="#espacios" style="aspect-ratio: 4/5"><img src="img/habitacion.jpg" alt="Habitación con cama matrimonial"><span class="tile-label"><span class="serif" style="font-size: 32px">Habitaciones</span><span class="tile-arrow" aria-hidden="true">→</span></span></a>
+    <a class="tile sr-mask" href="#espacios" style="aspect-ratio: 4/5"><img src="img/cocina.jpg" alt="Cocina equipada con mesa de madera"><span class="tile-label"><span class="serif" style="font-size: 32px">Cocina</span><span class="tile-arrow" aria-hidden="true">→</span></span></a>
+    <a class="tile sr-mask" href="#espacios" style="aspect-ratio: 4/5"><img src="img/jardin.jpg" alt="Hortensias del jardín"><span class="tile-label"><span class="serif" style="font-size: 32px">Jardines</span><span class="tile-arrow" aria-hidden="true">→</span></span></a>
+    <a class="tile sr-mask" href="#espacios" style="aspect-ratio: 4/5"><img src="img/sala.jpg" alt="Sala con sofás"><span class="tile-label"><span class="serif" style="font-size: 32px">Sala</span><span class="tile-arrow" aria-hidden="true">→</span></span></a>
+  </div>
+</section>
+
+<!-- 04 · Espacios -->
+<section id="espacios" style="background: #122318; color: #E3EDD3; padding: clamp(90px,10vw,150px) clamp(24px,5vw,72px)">
+  <div style="max-width: 1360px; margin: 0 auto">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 64px">
+      <div style="display: flex; flex-direction: column; gap: 18px">
+        <p class="sr" style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .32em; color: #ABC97B">DESCUBRE</p>
+        <h2 class="serif sr" style="margin: 0; font-size: clamp(40px,5vw,72px); line-height: 1">Los espacios</h2>
+      </div>
+      <p class="sr" style="margin: 0; max-width: 380px; font-size: 16px; line-height: 1.7; color: rgba(227,237,211,.8)">Todo lo que necesitas para una escapada tranquila, en familia, en pareja o con amigos.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(24px,3vw,40px)">
+      <a class="card sr" href="https://wa.me/50370373036?text=Hola%2C%20quiero%20info%20de%20la%20casa" target="_blank" rel="noopener">
+        <div class="card-img"><img src="img/casa.jpg" alt="Fachada de la casa del hostal"></div>
+        <span style="font-size: 13px; letter-spacing: .2em; color: rgba(227,237,211,.6)">01</span>
+        <span class="serif" style="font-size: 36px; line-height: 1">La casa</span>
+        <span style="font-size: 16px; line-height: 1.65; color: rgba(227,237,211,.8)">Sala con Smart TV, cocina equipada con cafetera y comedor de madera para compartir.</span>
+        <span class="card-link">Descubrir <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="card sr" href="https://wa.me/50370373036?text=Hola%2C%20quiero%20info%20de%20las%20habitaciones" target="_blank" rel="noopener" style="margin-top: clamp(0px,4vw,64px)">
+        <div class="card-img"><img src="img/literas.jpg" alt="Habitación con literas"></div>
+        <span style="font-size: 13px; letter-spacing: .2em; color: rgba(227,237,211,.6)">02</span>
+        <span class="serif" style="font-size: 36px; line-height: 1">Las habitaciones</span>
+        <span style="font-size: 16px; line-height: 1.65; color: rgba(227,237,211,.8)">Camas matrimoniales y literas, con ropa de cama y toallas listas a tu llegada.</span>
+        <span class="card-link">Descubrir <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="card sr" href="https://wa.me/50370373036?text=Hola%2C%20quiero%20info%20del%20jard%C3%ADn" target="_blank" rel="noopener" style="margin-top: clamp(0px,8vw,128px)">
+        <div class="card-img"><img src="img/hamaca.jpg" alt="Hamaca de colores en el jardín"></div>
+        <span style="font-size: 13px; letter-spacing: .2em; color: rgba(227,237,211,.6)">03</span>
+        <span class="serif" style="font-size: 36px; line-height: 1">El jardín</span>
+        <span style="font-size: 16px; line-height: 1.65; color: rgba(227,237,211,.8)">Hamacas, sillas de playa y área para fogatas bajo el cielo de la Ruta de las Flores.</span>
+        <span class="card-link">Descubrir <span aria-hidden="true">→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 05 · Lo esencial -->
+<section id="esencial" style="padding: clamp(90px,10vw,150px) clamp(24px,5vw,72px); max-width: 1360px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: clamp(40px,6vw,96px)">
+  <div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+    <p class="sr" style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .32em; color: #4C5D3D">LO ESENCIAL</p>
+    <h2 class="serif sr" style="margin: 0; font-size: clamp(40px,5vw,72px); line-height: 1.02; color: #122318">Todo listo <span style="font-style: italic; font-weight: 600; color: #4C5D3D">para tu estadía.</span></h2>
+    <div class="sr" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 16px; border-top: 1px solid rgba(76,93,61,.3)">
+      <div style="padding: 24px 0; display: flex; flex-direction: column; gap: 6px; border-right: 1px solid rgba(76,93,61,.3)">
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: .26em; color: #4C5D3D">CHECK-IN</span>
+        <span class="serif" style="font-size: 44px; line-height: 1">3:00 PM</span>
+      </div>
+      <div style="padding: 24px 0 24px 28px; display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: .26em; color: #4C5D3D">CHECK-OUT</span>
+        <span class="serif" style="font-size: 44px; line-height: 1">11:00 AM</span>
+      </div>
+    </div>
+    <p class="sr" style="margin: 0; font-size: 15px; line-height: 1.7; color: #2a3a2e">Cancelación gratuita hasta 24 horas antes del check-in. Aceptamos tarjeta, transferencia y efectivo.</p>
+  </div>
+  <div style="flex: 1 1 520px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 0">
+      <div class="sr" style="padding: 28px 24px 28px 0; border-top: 1px solid rgba(76,93,61,.3); display: flex; gap: 18px; align-items: flex-start">
+        <span class="serif" style="font-size: 15px; color: #4C5D3D; min-width: 26px; padding-top: 6px">01</span>
+        <span style="display: flex; flex-direction: column; gap: 6px">
+          <span class="serif" style="font-size: 27px; line-height: 1.1; color: #122318">Wi-Fi</span>
+          <span style="font-size: 15px; line-height: 1.6; color: #2a3a2e">Para navegar, trabajar un rato y compartir tus fotos.</span>
+        </span>
+      </div>
+      <div class="sr" style="padding: 28px 24px 28px 0; border-top: 1px solid rgba(76,93,61,.3); display: flex; gap: 18px; align-items: flex-start">
+        <span class="serif" style="font-size: 15px; color: #4C5D3D; min-width: 26px; padding-top: 6px">02</span>
+        <span style="display: flex; flex-direction: column; gap: 6px">
+          <span class="serif" style="font-size: 27px; line-height: 1.1; color: #122318">Cocina equipada</span>
+          <span style="font-size: 15px; line-height: 1.6; color: #2a3a2e">Refrigeradora, estufa, cafetera y comedor de madera.</span>
+        </span>
+      </div>
+      <div class="sr" style="padding: 28px 24px 28px 0; border-top: 1px solid rgba(76,93,61,.3); display: flex; gap: 18px; align-items: flex-start">
+        <span class="serif" style="font-size: 15px; color: #4C5D3D; min-width: 26px; padding-top: 6px">03</span>
+        <span style="display: flex; flex-direction: column; gap: 6px">
+          <span class="serif" style="font-size: 27px; line-height: 1.1; color: #122318">Sala con Smart TV</span>
+          <span style="font-size: 15px; line-height: 1.6; color: #2a3a2e">Sofás cómodos para las tardes frescas de montaña.</span>
+        </span>
+      </div>
+      <div class="sr" style="padding: 28px 24px 28px 0; border-top: 1px solid rgba(76,93,61,.3); display: flex; gap: 18px; align-items: flex-start">
+        <span class="serif" style="font-size: 15px; color: #4C5D3D; min-width: 26px; padding-top: 6px">04</span>
+        <span style="display: flex; flex-direction: column; gap: 6px">
+          <span class="serif" style="font-size: 27px; line-height: 1.1; color: #122318">Hamacas y jardín</span>
+          <span style="font-size: 15px; line-height: 1.6; color: #2a3a2e">Verde, flores y aire puro a la puerta de tu habitación.</span>
+        </span>
+      </div>
+      <div class="sr" style="padding: 28px 24px 28px 0; border-top: 1px solid rgba(76,93,61,.3); display: flex; gap: 18px; align-items: flex-start">
+        <span class="serif" style="font-size: 15px; color: #4C5D3D; min-width: 26px; padding-top: 6px">05</span>
+        <span style="display: flex; flex-direction: column; gap: 6px">
+          <span class="serif" style="font-size: 27px; line-height: 1.1; color: #122318">Área de fogata</span>
+          <span style="font-size: 15px; line-height: 1.6; color: #2a3a2e">En la zona designada, para las noches con estrellas.</span>
+        </span>
+      </div>
+      <div class="sr" style="padding: 28px 24px 28px 0; border-top: 1px solid rgba(76,93,61,.3); display: flex; gap: 18px; align-items: flex-start">
+        <span class="serif" style="font-size: 15px; color: #4C5D3D; min-width: 26px; padding-top: 6px">06</span>
+        <span style="display: flex; flex-direction: column; gap: 6px">
+          <span class="serif" style="font-size: 27px; line-height: 1.1; color: #122318">Estacionamiento</span>
+          <span style="font-size: 15px; line-height: 1.6; color: #2a3a2e">Espacio para tu vehículo dentro de la propiedad.</span>
+        </span>
+      </div>
+  </div>
+</section>
+
+<!-- 06 · Huéspedes -->
+<section id="huespedes" style="background: #ABC97B; color: #122318; padding: clamp(90px,10vw,140px) 0; overflow: hidden">
+  <div style="max-width: 1360px; margin: 0 auto 56px; padding: 0 clamp(24px,5vw,72px); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+    <h2 class="serif sr" style="margin: 0; font-size: clamp(40px,5vw,72px); line-height: 1">Lo que dicen <span style="font-style: italic; font-weight: 600; color: #4C5D3D">nuestros huéspedes</span></h2>
+    <span class="iso-musgo spin-slow" aria-hidden="true" style="width: 72px; height: 72px"></span>
+  </div>
+  <div class="marquee marquee-slow">
+      <figure style="margin: 0 24px 0 0; width: 400px; flex: none; background: #E3EDD3; border-radius: 4px; padding: 36px 34px; display: flex; flex-direction: column; gap: 22px">
+        <span class="serif" aria-hidden="true" style="font-size: 64px; line-height: .5; color: #ABC97B">“</span>
+        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">[Reseña real de huésped — pegar desde Google o Booking]</blockquote>
+        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">[NOMBRE · PAÍS]</figcaption>
+      </figure>
+      <figure style="margin: 0 24px 0 0; width: 400px; flex: none; background: #E3EDD3; border-radius: 4px; padding: 36px 34px; display: flex; flex-direction: column; gap: 22px">
+        <span class="serif" aria-hidden="true" style="font-size: 64px; line-height: .5; color: #ABC97B">“</span>
+        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">[Reseña real de huésped]</blockquote>
+        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">[NOMBRE · PAÍS]</figcaption>
+      </figure>
+      <figure style="margin: 0 24px 0 0; width: 400px; flex: none; background: #E3EDD3; border-radius: 4px; padding: 36px 34px; display: flex; flex-direction: column; gap: 22px">
+        <span class="serif" aria-hidden="true" style="font-size: 64px; line-height: .5; color: #ABC97B">“</span>
+        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">[Reseña real de huésped]</blockquote>
+        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">[NOMBRE · PAÍS]</figcaption>
+      </figure>
+      <figure style="margin: 0 24px 0 0; width: 400px; flex: none; background: #E3EDD3; border-radius: 4px; padding: 36px 34px; display: flex; flex-direction: column; gap: 22px">
+        <span class="serif" aria-hidden="true" style="font-size: 64px; line-height: .5; color: #ABC97B">“</span>
+        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">[Reseña real de huésped]</blockquote>
+        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">[NOMBRE · PAÍS]</figcaption>
+      </figure>
+      <figure style="margin: 0 24px 0 0; width: 400px; flex: none; background: #E3EDD3; border-radius: 4px; padding: 36px 34px; display: flex; flex-direction: column; gap: 22px">
+        <span class="serif" aria-hidden="true" style="font-size: 64px; line-height: .5; color: #ABC97B">“</span>
+        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">[Reseña real de huésped — pegar desde Google o Booking]</blockquote>
+        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">[NOMBRE · PAÍS]</figcaption>
+      </figure>
+      <figure style="margin: 0 24px 0 0; width: 400px; flex: none; background: #E3EDD3; border-radius: 4px; padding: 36px 34px; display: flex; flex-direction: column; gap: 22px">
+        <span class="serif" aria-hidden="true" style="font-size: 64px; line-height: .5; color: #ABC97B">“</span>
+        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">[Reseña real de huésped]</blockquote>
+        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">[NOMBRE · PAÍS]</figcaption>
+      </figure>
+      <figure style="margin: 0 24px 0 0; width: 400px; flex: none; background: #E3EDD3; border-radius: 4px; padding: 36px 34px; display: flex; flex-direction: column; gap: 22px">
+        <span class="serif" aria-hidden="true" style="font-size: 64px; line-height: .5; color: #ABC97B">“</span>
+        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">[Reseña real de huésped]</blockquote>
+        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">[NOMBRE · PAÍS]</figcaption>
+      </figure>
+      <figure style="margin: 0 24px 0 0; width: 400px; flex: none; background: #E3EDD3; border-radius: 4px; padding: 36px 34px; display: flex; flex-direction: column; gap: 22px">
+        <span class="serif" aria-hidden="true" style="font-size: 64px; line-height: .5; color: #ABC97B">“</span>
+        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">[Reseña real de huésped]</blockquote>
+        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">[NOMBRE · PAÍS]</figcaption>
+      </figure>
+  </div>
+</section>
+
+<!-- 07 · Ubicación -->
+<section id="ubicacion" style="padding: clamp(90px,10vw,150px) clamp(24px,5vw,72px); max-width: 1360px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: clamp(40px,6vw,96px); align-items: center">
+  <div class="sr-mask" style="flex: 1 1 520px; min-width: 0; overflow: hidden; border-radius: 4px; aspect-ratio: 4/5; max-height: 720px"><img class="px" src="img/camino.jpg" alt="Camino de tierra hacia el volcán" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+  <div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+    <p class="sr" style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .32em; color: #4C5D3D">UBICACIÓN</p>
+    <h2 class="serif sr" style="margin: 0; font-size: clamp(40px,5vw,72px); line-height: 1.02; color: #122318">En el corazón de la <span style="font-style: italic; font-weight: 600; color: #4C5D3D">Ruta de las Flores</span></h2>
+    <p class="sr" style="margin: 0; font-size: 18px; line-height: 1.75; color: #2a3a2e">San José La Majada, Juayúa, El Salvador. Cerca del pueblo, sus cafetales y la feria gastronómica de fin de semana, pero lejos del ruido.</p>
+    <svg class="wave-draw" aria-hidden="true" viewBox="0 0 520 40" style="width: 100%; max-width: 420px; height: 40px"><path d="M2 20 C 45 2, 85 2, 130 20 S 215 38, 260 20 S 345 2, 390 20 S 475 38, 518 20" fill="none" stroke="#4C5D3D" stroke-width="3" stroke-linecap="round" stroke-dasharray="0.1 11"></path></svg>
+    <a class="btn btn-oscuro sr" href="https://www.google.com/maps/search/?api=1&amp;query=Hostal%20Valle%20Nuevo%20Juay%C3%BAa" target="_blank" rel="noopener" style="align-self: flex-start">Cómo llegar <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<!-- 08 · Cierre -->
+<section id="reservar" style="position: relative; overflow: hidden; color: #E3EDD3; min-height: 680px; display: flex; align-items: center; justify-content: center; text-align: center">
+  <img class="px" src="img/araucaria.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+  <div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(18,35,24,.72)"></div>
+  <div style="position: relative; padding: 100px 24px; display: flex; flex-direction: column; align-items: center; gap: 28px; max-width: 860px">
+    <img class="sr" src="img/marca-sin-fondo.svg" alt="" style="width: 210px; height: auto">
+    <h2 class="serif sr" style="margin: 0; font-size: clamp(44px,6.4vw,96px); line-height: 1">Lo esencial, <span style="font-style: italic; font-weight: 600; color: #ABC97B">en un solo lugar.</span></h2>
+    <p class="sr" style="margin: 0; font-size: 18px; line-height: 1.7; color: rgba(227,237,211,.85)">Escríbenos por WhatsApp y te ayudamos a preparar tu escapada.</p>
+    <a class="btn btn-hoja sr" href="https://wa.me/50370373036?text=Hola%2C%20quiero%20reservar%20en%20Hostal%20Valle%20Nuevo" target="_blank" rel="noopener">Reserva tu estadía <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer id="contacto" style="background: #4C5D3D; color: #E3EDD3; padding: 88px clamp(24px,5vw,72px) 36px">
+  <div style="max-width: 1360px; margin: 0 auto; display: flex; flex-direction: column; gap: 64px">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 48px">
+      <img src="img/marca.svg" alt="Hostal Valle Nuevo" style="width: 240px; height: auto">
+      <div style="display: flex; flex-wrap: wrap; gap: clamp(40px,6vw,96px)">
+        <div style="display: flex; flex-direction: column; gap: 12px; font-size: 15px">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: .26em; color: #E3EDD3">VISÍTANOS</span>
+          <span>San José La Majada</span><span>Juayúa, El Salvador</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px; font-size: 15px">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: .26em; color: #E3EDD3">CONTACTO</span>
+          <a href="https://wa.me/50370373036" target="_blank" rel="noopener" style="color: #E3EDD3">+503 7037 3036</a>
+          <a href="mailto:hostalvallenuevo@gmail.com" style="color: #E3EDD3">hostalvallenuevo@gmail.com</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px; font-size: 15px">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: .26em; color: #E3EDD3">SÍGUENOS</span>
+          <a href="https://instagram.com/hostalvallenuevo" target="_blank" rel="noopener" style="color: #E3EDD3">Instagram</a>
+          <a href="https://facebook.com/hostalvallenuevo" target="_blank" rel="noopener" style="color: #E3EDD3">Facebook</a>
+        </div>
+      </div>
+    </div>
+    <svg aria-hidden="true" viewBox="0 0 1360 30" preserveAspectRatio="none" style="width: 100%; height: 30px"><path d="M2 15 C 115 2, 225 2, 340 15 S 565 28, 680 15 S 905 2, 1020 15 S 1245 28, 1358 15" fill="none" stroke="#ABC97B" stroke-opacity=".6" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="0.1 10"></path></svg>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 13px; color: rgba(227,237,211,.9)">
+      <span>© 2026 Hostal Valle Nuevo · Lo esencial, en un solo lugar.</span>
+      <a href="#inicio" style="color: #E3EDD3">Volver arriba ↑</a>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var menu=document.getElementById('menu');
+  var openBtn=document.querySelector('[data-menu-open]');
+  function setOpen(o){
+    menu.hidden=!o; document.body.classList.toggle('menu-open',o);
+    openBtn.setAttribute('aria-expanded',o?'true':'false');
+    if(o){ var f=menu.querySelector('a,button'); if(f) f.focus(); } else openBtn.focus();
+  }
+  openBtn.addEventListener('click',function(){ setOpen(menu.hidden); });
+  menu.querySelectorAll('[data-menu-close]').forEach(function(el){ el.addEventListener('click',function(){ setOpen(false); }); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && !menu.hidden) setOpen(false); });
+})();
+</script>
+</body>
+</html>
