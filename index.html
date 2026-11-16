@@ -40,6 +40,9 @@ a{color:#4C5D3D}a:hover{color:#122318}
 .nav-book:hover{background:#E3EDD3;color:#122318;border-color:#E3EDD3}
 .burger{display:inline-flex;flex-direction:column;gap:5px}
 .burger i{display:block;width:18px;height:1.5px;background:currentColor}
+.nav::before{content:"";position:absolute;inset:0;background:#4C5D3D;opacity:0;transition:opacity .4s;z-index:-1;box-shadow:0 1px 0 rgba(18,35,24,.25)}
+.nav.scrolled::before{opacity:.97}
+@supports (animation-timeline: scroll()){.nav::before{animation:navBg linear both;animation-timeline:scroll(root);animation-range:0px 400px}@keyframes navBg{to{opacity:.97}}}
 
 /* ---------- Menú a pantalla completa ---------- */
 .menu[hidden]{display:none}
@@ -87,6 +90,7 @@ body.menu-open{overflow:hidden}
 .tile{position:relative;overflow:hidden;border-radius:4px;display:block;text-decoration:none;color:#E3EDD3}
 .tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s cubic-bezier(.22,1,.36,1)}
 .tile:hover img{transform:scale(1.08)}
+.tile:hover,.card:hover{color:#E3EDD3}
 .tile::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(18,35,24,.75),rgba(18,35,24,0) 55%);transition:opacity .5s}
 .tile-label{position:absolute;left:22px;right:22px;bottom:20px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
 .tile-arrow{display:inline-flex;width:44px;height:44px;border-radius:50%;border:1px solid rgba(227,237,211,.6);align-items:center;justify-content:center;transform:translateX(-10px);opacity:0;transition:all .5s cubic-bezier(.22,1,.36,1)}
@@ -233,7 +237,7 @@ body.menu-open{overflow:hidden}
     <h2 class="serif sr" style="margin: 0; font-size: clamp(40px,5vw,72px); line-height: 1; color: #122318">Un vistazo <span style="font-style: italic; font-weight: 600; color: #4C5D3D">a Valle Nuevo</span></h2>
     <p class="sr" style="margin: 0; max-width: 360px; font-size: 16px; line-height: 1.7; color: #2a3a2e">Habitaciones cómodas, espacios para cocinar y compartir, y verde por todas partes.</p>
   </div>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 18px">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 18px">
     <a class="tile sr-mask" href="#espacios" style="aspect-ratio: 4/5"><img src="img/habitacion.jpg" alt="Habitación con cama matrimonial"><span class="tile-label"><span class="serif" style="font-size: 32px">Habitaciones</span><span class="tile-arrow" aria-hidden="true">→</span></span></a>
     <a class="tile sr-mask" href="#espacios" style="aspect-ratio: 4/5"><img src="img/cocina.jpg" alt="Cocina equipada con mesa de madera"><span class="tile-label"><span class="serif" style="font-size: 32px">Cocina</span><span class="tile-arrow" aria-hidden="true">→</span></span></a>
     <a class="tile sr-mask" href="#espacios" style="aspect-ratio: 4/5"><img src="img/jardin.jpg" alt="Hortensias del jardín"><span class="tile-label"><span class="serif" style="font-size: 32px">Jardines</span><span class="tile-arrow" aria-hidden="true">→</span></span></a>
@@ -344,48 +348,88 @@ body.menu-open{overflow:hidden}
 <section id="huespedes" style="background: #ABC97B; color: #122318; padding: clamp(90px,10vw,140px) 0; overflow: hidden">
   <div style="max-width: 1360px; margin: 0 auto 56px; padding: 0 clamp(24px,5vw,72px); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
     <h2 class="serif sr" style="margin: 0; font-size: clamp(40px,5vw,72px); line-height: 1">Lo que dicen <span style="font-style: italic; font-weight: 600; color: #4C5D3D">nuestros huéspedes</span></h2>
-    <span class="iso-musgo spin-slow" aria-hidden="true" style="width: 72px; height: 72px"></span>
+    <a class="sr" href="https://www.google.com/maps/search/?api=1&amp;query=Hostal%20Valle%20Nuevo%20Juay%C3%BAa" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 16px; text-decoration: none; color: #122318"><span class="serif" style="font-size: 60px; line-height: 1">5.0</span><span style="display: flex; flex-direction: column; gap: 4px"><span aria-hidden="true" style="font-size: 20px; letter-spacing: .14em">★★★★★</span><span style="font-size: 14px; font-weight: 600; letter-spacing: .06em">22 opiniones en Google →</span></span></a>
   </div>
   <div class="marquee marquee-slow">
       <figure style="margin: 0 24px 0 0; width: 400px; flex: none; background: #E3EDD3; border-radius: 4px; padding: 36px 34px; display: flex; flex-direction: column; gap: 22px">
         <span class="serif" aria-hidden="true" style="font-size: 64px; line-height: .5; color: #ABC97B">“</span>
-        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">[Reseña real de huésped — pegar desde Google o Booking]</blockquote>
-        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">[NOMBRE · PAÍS]</figcaption>
+        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">Un lugar extraordinario para relajarse, instalaciones muy modernas y todo muy limpio y ordenado. Recomendadísimo.</blockquote>
+        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">Luis M. · Google</figcaption>
       </figure>
       <figure style="margin: 0 24px 0 0; width: 400px; flex: none; background: #E3EDD3; border-radius: 4px; padding: 36px 34px; display: flex; flex-direction: column; gap: 22px">
         <span class="serif" aria-hidden="true" style="font-size: 64px; line-height: .5; color: #ABC97B">“</span>
-        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">[Reseña real de huésped]</blockquote>
-        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">[NOMBRE · PAÍS]</figcaption>
+        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">Excelente lugar para compartir con la familia, clima fresco y un jardín amplio para los niños.</blockquote>
+        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">Liny B. · Google</figcaption>
       </figure>
       <figure style="margin: 0 24px 0 0; width: 400px; flex: none; background: #E3EDD3; border-radius: 4px; padding: 36px 34px; display: flex; flex-direction: column; gap: 22px">
         <span class="serif" aria-hidden="true" style="font-size: 64px; line-height: .5; color: #ABC97B">“</span>
-        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">[Reseña real de huésped]</blockquote>
-        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">[NOMBRE · PAÍS]</figcaption>
+        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">Un lugar muy exclusivo para hacer glamping con la familia o amigos. Cada habitación cuenta con su baño privado, muy cómodo. Se los recomiendo.</blockquote>
+        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">Julio P. · Google</figcaption>
       </figure>
       <figure style="margin: 0 24px 0 0; width: 400px; flex: none; background: #E3EDD3; border-radius: 4px; padding: 36px 34px; display: flex; flex-direction: column; gap: 22px">
         <span class="serif" aria-hidden="true" style="font-size: 64px; line-height: .5; color: #ABC97B">“</span>
-        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">[Reseña real de huésped]</blockquote>
-        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">[NOMBRE · PAÍS]</figcaption>
+        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">Excelente lugar para descansar de la ciudad, excelente clima e instalaciones en perfecto estado.</blockquote>
+        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">Obed H. · Google</figcaption>
       </figure>
       <figure style="margin: 0 24px 0 0; width: 400px; flex: none; background: #E3EDD3; border-radius: 4px; padding: 36px 34px; display: flex; flex-direction: column; gap: 22px">
         <span class="serif" aria-hidden="true" style="font-size: 64px; line-height: .5; color: #ABC97B">“</span>
-        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">[Reseña real de huésped — pegar desde Google o Booking]</blockquote>
-        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">[NOMBRE · PAÍS]</figcaption>
+        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">Es un maravilloso lugar, muy acogedor. Nos encanta visitarlos, agradecemos mucho su atención.</blockquote>
+        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">Alba R. · Google</figcaption>
       </figure>
       <figure style="margin: 0 24px 0 0; width: 400px; flex: none; background: #E3EDD3; border-radius: 4px; padding: 36px 34px; display: flex; flex-direction: column; gap: 22px">
         <span class="serif" aria-hidden="true" style="font-size: 64px; line-height: .5; color: #ABC97B">“</span>
-        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">[Reseña real de huésped]</blockquote>
-        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">[NOMBRE · PAÍS]</figcaption>
+        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">Buen clima, excelente lugar, cuenta con todo para disfrutar. Recomendado para ir en familia.</blockquote>
+        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">Carmen D. · Google</figcaption>
       </figure>
       <figure style="margin: 0 24px 0 0; width: 400px; flex: none; background: #E3EDD3; border-radius: 4px; padding: 36px 34px; display: flex; flex-direction: column; gap: 22px">
         <span class="serif" aria-hidden="true" style="font-size: 64px; line-height: .5; color: #ABC97B">“</span>
-        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">[Reseña real de huésped]</blockquote>
-        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">[NOMBRE · PAÍS]</figcaption>
+        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">Experiencia inigualable: comodidad, limpieza y seguridad. Recomendado para los que quieran tener un buen convivio.</blockquote>
+        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">Luis C. · Google</figcaption>
       </figure>
       <figure style="margin: 0 24px 0 0; width: 400px; flex: none; background: #E3EDD3; border-radius: 4px; padding: 36px 34px; display: flex; flex-direction: column; gap: 22px">
         <span class="serif" aria-hidden="true" style="font-size: 64px; line-height: .5; color: #ABC97B">“</span>
-        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">[Reseña real de huésped]</blockquote>
-        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">[NOMBRE · PAÍS]</figcaption>
+        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">Muy buen lugar, amplio, muy buen clima y fácil de llegar.</blockquote>
+        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">Sonia D. · Google</figcaption>
+      </figure>
+      <figure style="margin: 0 24px 0 0; width: 400px; flex: none; background: #E3EDD3; border-radius: 4px; padding: 36px 34px; display: flex; flex-direction: column; gap: 22px">
+        <span class="serif" aria-hidden="true" style="font-size: 64px; line-height: .5; color: #ABC97B">“</span>
+        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">Un lugar extraordinario para relajarse, instalaciones muy modernas y todo muy limpio y ordenado. Recomendadísimo.</blockquote>
+        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">Luis M. · Google</figcaption>
+      </figure>
+      <figure style="margin: 0 24px 0 0; width: 400px; flex: none; background: #E3EDD3; border-radius: 4px; padding: 36px 34px; display: flex; flex-direction: column; gap: 22px">
+        <span class="serif" aria-hidden="true" style="font-size: 64px; line-height: .5; color: #ABC97B">“</span>
+        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">Excelente lugar para compartir con la familia, clima fresco y un jardín amplio para los niños.</blockquote>
+        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">Liny B. · Google</figcaption>
+      </figure>
+      <figure style="margin: 0 24px 0 0; width: 400px; flex: none; background: #E3EDD3; border-radius: 4px; padding: 36px 34px; display: flex; flex-direction: column; gap: 22px">
+        <span class="serif" aria-hidden="true" style="font-size: 64px; line-height: .5; color: #ABC97B">“</span>
+        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">Un lugar muy exclusivo para hacer glamping con la familia o amigos. Cada habitación cuenta con su baño privado, muy cómodo. Se los recomiendo.</blockquote>
+        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">Julio P. · Google</figcaption>
+      </figure>
+      <figure style="margin: 0 24px 0 0; width: 400px; flex: none; background: #E3EDD3; border-radius: 4px; padding: 36px 34px; display: flex; flex-direction: column; gap: 22px">
+        <span class="serif" aria-hidden="true" style="font-size: 64px; line-height: .5; color: #ABC97B">“</span>
+        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">Excelente lugar para descansar de la ciudad, excelente clima e instalaciones en perfecto estado.</blockquote>
+        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">Obed H. · Google</figcaption>
+      </figure>
+      <figure style="margin: 0 24px 0 0; width: 400px; flex: none; background: #E3EDD3; border-radius: 4px; padding: 36px 34px; display: flex; flex-direction: column; gap: 22px">
+        <span class="serif" aria-hidden="true" style="font-size: 64px; line-height: .5; color: #ABC97B">“</span>
+        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">Es un maravilloso lugar, muy acogedor. Nos encanta visitarlos, agradecemos mucho su atención.</blockquote>
+        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">Alba R. · Google</figcaption>
+      </figure>
+      <figure style="margin: 0 24px 0 0; width: 400px; flex: none; background: #E3EDD3; border-radius: 4px; padding: 36px 34px; display: flex; flex-direction: column; gap: 22px">
+        <span class="serif" aria-hidden="true" style="font-size: 64px; line-height: .5; color: #ABC97B">“</span>
+        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">Buen clima, excelente lugar, cuenta con todo para disfrutar. Recomendado para ir en familia.</blockquote>
+        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">Carmen D. · Google</figcaption>
+      </figure>
+      <figure style="margin: 0 24px 0 0; width: 400px; flex: none; background: #E3EDD3; border-radius: 4px; padding: 36px 34px; display: flex; flex-direction: column; gap: 22px">
+        <span class="serif" aria-hidden="true" style="font-size: 64px; line-height: .5; color: #ABC97B">“</span>
+        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">Experiencia inigualable: comodidad, limpieza y seguridad. Recomendado para los que quieran tener un buen convivio.</blockquote>
+        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">Luis C. · Google</figcaption>
+      </figure>
+      <figure style="margin: 0 24px 0 0; width: 400px; flex: none; background: #E3EDD3; border-radius: 4px; padding: 36px 34px; display: flex; flex-direction: column; gap: 22px">
+        <span class="serif" aria-hidden="true" style="font-size: 64px; line-height: .5; color: #ABC97B">“</span>
+        <blockquote class="serif" style="margin: 0; font-size: 23px; line-height: 1.35; font-weight: 600; font-style: italic; color: #122318">Muy buen lugar, amplio, muy buen clima y fácil de llegar.</blockquote>
+        <figcaption style="font-size: 13px; letter-spacing: .14em; color: #4C5D3D">Sonia D. · Google</figcaption>
       </figure>
   </div>
 </section>
@@ -457,6 +501,9 @@ body.menu-open{overflow:hidden}
   }
   openBtn.addEventListener('click',function(){ setOpen(menu.hidden); });
   menu.querySelectorAll('[data-menu-close]').forEach(function(el){ el.addEventListener('click',function(){ setOpen(false); }); });
+  var nav=document.querySelector('.nav');
+  function onScroll(){ nav.classList.toggle('scrolled', window.scrollY>80); }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
   document.addEventListener('keydown',function(e){ if(e.key==='Escape' && !menu.hidden) setOpen(false); });
 })();
 </script>
